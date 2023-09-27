@@ -17,13 +17,15 @@ def menu():
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>НГТУ, ФБ, Лабораторные работы</title>
         <link rel="stylesheet" href="''' + url_for('static', filename='lab1.css') + '''">
+        <link rel="stylesheet" href="''' + url_for('static', filename='lab1.css') + '''">
     </head>
     <body>
         <header>
             НГТУ, ФБ, WEB-программирование, часть 2. Список лабораторных
         </header>
         <h1>
-            <a href="/lab1">Лабораторная работа 1</a>
+            <a href="/lab1">Лабораторная работа 1</a><br>
+            <a href="/lab2">Лабораторная работа 2</a>
         </h1>
         <footer>
             &copy; Панчук Анастасия Андреевна, ФБИ-13, Курс 3, 2023
@@ -175,3 +177,7 @@ def example():
 @app.route('/lab2/')
 def lab2():
     return render_template('lab2.html')
+
+@app.route('/lab2/puppys/')
+def puppys():
+    return render_template('puppys.html')
