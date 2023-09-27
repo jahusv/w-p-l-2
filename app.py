@@ -145,4 +145,7 @@ def pear ():
 @app.route('/lab2/example')
 def example():
     name = 'Анастасия Панчук'
-    return render_template ("example.html", name = name)
+    numCour = '3'
+    group = 'ФБИ-13'
+    labNum = '2'
+    return render_template ("example.html", name = name, numCour = numCour, group = group, labNum = labNum)
