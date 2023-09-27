@@ -155,5 +155,19 @@ def example():
         {'name': 'мандарины', 'price': 95}, 
         {'name': 'манго', 'price': 321}
         ]
+        
+    books = [
+        {'authorName' : 'Ф.М. Достоевский', 'bookName' : 'Преступление и наказание', 'kind': 'Роман', 'pages': 500},
+        {'authorName' : 'Джером Д. Сэлинджер', 'bookName' : 'Над пропастью во ржи', 'kind': 'Роман', 'pages': 257},
+        {'authorName' : 'Джейн Остин', 'bookName' : 'Гордость и предубеждение', 'kind': 'Роман', 'pages': 387},
+        {'authorName' : 'Ф. Фицжеральд', 'bookName' : 'Великий Гэтсби', 'kind': 'Роман', 'pages':367 },
+        {'authorName' : 'М. Булгаков', 'bookName' : 'Мастер и Маргарита', 'kind': 'Роман', 'pages': 623},
+        {'authorName' : 'М.Ю. Лермонтов', 'bookName' : 'Герой нашего времени', 'kind': 'Роман', 'pages': 267},
+        {'authorName' : 'А.С. Пушкин', 'bookName' : 'Капитанская дочка', 'kind': 'Роман', 'pages':144 },
+        {'authorName' : 'В.В. Набоков', 'bookName' : 'Лолита', 'kind': 'Роман', 'pages': 367},
+        {'authorName' : 'Л.Н. Толстой', 'bookName' : 'Война и мир', 'kind': 'Роман', 'pages': 1000},
+        {'authorName' : 'Н.В. Гоголь', 'bookName' : 'Вечера на хуторе близ диканьки', 'kind': 'Роман', 'pages': 627}
+    ]
+
     return render_template ("example.html", name = name, 
-            numCour = numCour, group = group, labNum = labNum, fruits = fruits)
+            numCour = numCour, group = group, labNum = labNum, fruits = fruits, books = books)
