@@ -6,6 +6,8 @@ lab1 = Blueprint('lab1', __name__)
 @lab1.route("/index")
 def start():
     return redirect ("/menu", code=302)
+
+
 @lab1.route("/menu")
 def menu():
     return ''' 
@@ -25,7 +27,8 @@ def menu():
         </header>
         <h1>
             <a href="/lab1">Лабораторная работа 1</a><br>
-            <a href="/lab2">Лабораторная работа 2</a>
+            <a href="/lab2">Лабораторная работа 2</a><br>
+            <a href="/lab3">Лабораторная работа 3</a>
         </h1>
         <footer>
             &copy; Панчук Анастасия Андреевна, ФБИ-13, Курс 3, 2023
@@ -54,7 +57,7 @@ def lab():
             web-сервер на flask
         </h1>
         <p>
-            Flask — фреймворк для создания веб-приложений на языке
+            Flask — Фреймворк для создания веб-приложений на языке
             программирования Python, использующий набор инструментов
             Werkzeug, а также шаблонизатор Jinja2. Относится к категории так
             называемых микрофреймворков — минималистичных каркасов
@@ -72,6 +75,7 @@ def lab():
     </body>
 </html>
     '''
+
 @lab1.route('/lab1/oak')
 def oak ():
     return '''
@@ -86,6 +90,7 @@ def oak ():
         </body>
     </html>
     '''
+
 @lab1.route('/lab1/student')
 def student ():
     return '''
@@ -100,6 +105,7 @@ def student ():
         </body>
     </html>
     '''
+
 
 @lab1.route('/lab1/python')
 def python ():
@@ -116,6 +122,7 @@ def python ():
         </body>
     </html>
     '''
+
 
 @lab1.route ('/lab1/pear')
 def pear ():

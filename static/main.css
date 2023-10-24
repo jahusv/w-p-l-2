@@ -34,3 +34,8 @@ img{
     height: 100px;
     width: 150px;
 }
+
+.errror{
+    color: red;
+    size: 20px;
+}

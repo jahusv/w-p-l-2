@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 3{% endblock %}
+
+{%block main%}
+
+
+    <h1>Пользователь</h1>
+    
+    <form action="/lab3/ticket">
+        <label>Ваше ФИО:</label>
+        <div>
+            <input type="text" placeholder="ФИО" name="user" value="{{ user or ''}}">
+            <span class=""error>{{errors.user}}</span>
+        </div>
+
+        <labeL>Возраст:</labeL>
+        <div>
+            <input type="number" name="age" value="{{ age or ''}}">
+        </div>
+
+        <labeL>Тип билета:</labeL>
+        <div>
+            <select name="type">
+                <option value="child" {{type == 'child ' and 'selected'}}>Детский</option>
+                <option value="adult" {{type == 'adult' and 'selected '}}>Взрослый</option>
+            </select>
+        </div>
+
+        <labeL>Полка:</labeL>
+        <div>
+            <select name="type">
+                <option value="upper" {{type == 'upper' and 'selected'}}>Верхняя</option>
+                <option value="lower" {{type == 'lower' and 'selected '}}>Нижняя</option>
+                <option value="upperside" {{type == 'upperside' and 'selected'}}>Верхняя боковая</option>
+                <option value="lowerside" {{type == 'lowerside' and 'selected '}}>Нижняя боковая</option>
+            </select>
+        </div>
+
+        <labeL>Багаж</labeL>
+        <div>
+            <select name="type">
+                <option value="yes" {{type == 'yes' and 'selected'}}>Есть</option>
+                <option value="no" {{type == 'no' and 'selected '}}>Нет</option>
+            </select>
+        </div>
+
+        <label>Пункт выезда:</label>
+        <div>
+            <input type="text" placeholder="Пункт выезда" name="dispatch" value="{{ dispatch or ''}}">
+            <span class=""error>{{errors.dispatch}}</span>
+        </div>
+
+        <label>Пункт прибытия:</label>
+        <div>
+            <input type="text" placeholder="Пункт прибытия" name="arrival" value="{{ arrival or ''}}">
+            <span class=""error>{{errors.arrival}}</span>
+        </div>
+
+        <label>Дата поездки:</label>
+        <div>
+            <input type="date" placeholder="Дата поездки" name="date" value="{{ date or ''}}">
+            <span class=""error>{{errors.arrival}}</span>
+        </div>
+
+
+        <div>
+            <button type="submit">Отправить</button>
+        </div>
+    </form>
+
+
+{%endblock%}
