@@ -1,7 +1,7 @@
 from flask import Blueprint, redirect, url_for, render_template
 lab2 = Blueprint('lab2',__name__)
 
-@lab2.route('/lab2')
+@lab2.route('/lab2/')
 def lab():
     return render_template('lab2.html')
 
