@@ -1,41 +1,12 @@
 from flask import Blueprint, redirect, url_for, render_template
 lab2 = Blueprint('lab2', __name__)
 
-@lab2.route("/")
-@lab2.route("/index")
-def start():
-    return redirect ("/menu", code=302)
 
-@lab2.route("/menu")
-def menu():
-    return ''' 
-    <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>НГТУ, ФБ, Лабораторные работы</title>
-        <link rel="stylesheet" href="''' + url_for('static', filename='lab1.css') + '''">
-        <link rel="stylesheet" href="''' + url_for('static', filename='lab1.css') + '''">
-    </head>
-    <body>
-        <header>
-            НГТУ, ФБ, WEB-программирование, часть 2. Список лабораторных
-        </header>
-        <h1>
-            <a href="/lab1">Лабораторная работа 1</a><br>
-            <a href="/lab2">Лабораторная работа 2</a>
-        </h1>
-        <footer>
-            &copy; Панчук Анастасия Андреевна, ФБИ-13, Курс 3, 2023
-        </footer>
-    </body>
-</html>
-    '''
+@lab2.route('/lab2')
+def lab():
+    return render_template('lab2.html')
 
 
-   
 @lab2.route('/lab2/example')
 def example():
     name = 'Анастасия Панчук'
@@ -63,13 +34,10 @@ def example():
         {'authorName' : 'Н.В. Гоголь', 'bookName' : 'Вечера на хуторе близ диканьки', 'kind': 'Роман', 'pages': 627}
     ]
 
-    return render_template ('temppates/example.html', name = name, 
+    return render_template ('example.html', name = name, 
             numCour = numCour, group = group, labNum = labNum, fruits = fruits, books = books)
 
-@lab2.route('/lab2/')
-def lab():
-    return render_template('tempates/lab2.html')
 
 @lab2.route('/lab2/puppys/')
 def puppys():
-    return render_template('templates/puppys.html')
+    return render_template('puppys.html')
