@@ -1,6 +1,5 @@
 from flask import Blueprint, redirect, url_for, render_template
-lab2 = Blueprint('lab2', __name__)
-
+lab2 = Blueprint('lab2',__name__)
 
 @lab2.route('/lab2')
 def lab():
@@ -34,7 +33,7 @@ def example():
         {'authorName' : 'Н.В. Гоголь', 'bookName' : 'Вечера на хуторе близ диканьки', 'kind': 'Роман', 'pages': 627}
     ]
 
-    return render_template ('example.html', name = name, 
+    return render_template('example.html', name = name, 
             numCour = numCour, group = group, labNum = labNum, fruits = fruits, books = books)
 
 
