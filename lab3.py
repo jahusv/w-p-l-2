@@ -18,7 +18,7 @@ def form1():
         errors['age'] = 'Заполните поле!'
     sex = request.args.get('sex')
 
-    return render_template ('form1.html', user=user, age=age, sex=sex errors=errors)
+    return render_template ('form1.html', user=user, age=age, sex=sex, errors=errors)
 
 
 @lab3.route('/lab3/order')
