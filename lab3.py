@@ -55,5 +55,5 @@ def ticketform():
 
 
 @lab3.route('/lab3/ticket')
-def ticketform():
+def ticket():
     return render_template ('ticket.html')
