@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+    {% extends "base.html" %}
 
 {% block lab %}Лабораторная работа 3{% endblock %}
 
@@ -19,31 +19,27 @@
             <input type="number" name="age" value="{{ age or ''}}">
         </div>
 
-        <labeL>Тип билета:</labeL>
-        <div>
-            <select name="type">
-                <option value="child" {{type == 'child ' and 'selected'}}>Детский</option>
-                <option value="adult" {{type == 'adult' and 'selected '}}>Взрослый</option>
-            </select>
-        </div>
-
-        <labeL>Полка:</labeL>
-        <div>
-            <select name="type">
-                <option value="upper" {{type == 'upper' and 'selected'}}>Верхняя</option>
-                <option value="lower" {{type == 'lower' and 'selected '}}>Нижняя</option>
-                <option value="upperside" {{type == 'upperside' and 'selected'}}>Верхняя боковая</option>
-                <option value="lowerside" {{type == 'lowerside' and 'selected '}}>Нижняя боковая</option>
-            </select>
-        </div>
-
-        <labeL>Багаж</labeL>
-        <div>
-            <select name="type">
-                <option value="yes" {{type == 'yes' and 'selected'}}>Есть</option>
-                <option value="no" {{type == 'no' and 'selected '}}>Нет</option>
-            </select>
-        </div>
+        <div>Тип билета:</div>
+        <label>
+            <input type="radio" value="child" name="kind" checked>Детский
+        </label>
+        <label>
+            <input type="radio" value="adult" name="kind" checked>Взрослый
+        </label>
+       
+        <div>Полка:</div>
+        <label> 
+            <input type="checkbox" name="upper">Верхняя
+        </label>
+        <label> 
+            <input type="checkbox" name="lower">Нижняя
+        </label>
+        <label> 
+            <input type="checkbox" name="upperside">Верхняя боковая
+        </label>
+        <label> 
+            <input type="checkbox" name="lowerside">Нижняя боковая
+        </label>
 
         <label>Пункт выезда:</label>
         <div>
