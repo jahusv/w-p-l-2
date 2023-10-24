@@ -1,10 +1,14 @@
-from flask import Flask, redirect, url_for, render_template
-from lab1 import lab1 
+from flask import Blueprint, redirect, url_for, render_template
+lab2 = Blueprint('lab2', __name__)
 
-app = Flask (__name__)
-app.register_blueprint (lab1)
+@lab2.route("/")
+@lab2.route("/index")
+def start():
+    return redirect ("/menu", code=302)
+
+
    
-@app.route('/lab2/example')
+@lab2.route('/lab2/example')
 def example():
     name = 'Анастасия Панчук'
     numCour = '3'
@@ -34,10 +38,10 @@ def example():
     return render_template ("example.html", name = name, 
             numCour = numCour, group = group, labNum = labNum, fruits = fruits, books = books)
 
-@app.route('/lab2/')
-def lab2():
+@lab2.route('/lab2/')
+def lab():
     return render_template('lab2.html')
 
-@app.route('/lab2/puppys/')
+@lab2.route('/lab2/puppys/')
 def puppys():
     return render_template('puppys.html')
