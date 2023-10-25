@@ -4,12 +4,12 @@
 
 {%block main%}
 
-{%if user%}
+{%if usert%}
     <h1>Ваш билет</h1>
         
 
-    <div>Ваше ФИО: {{ user }}</div>
-    <div>Возраст: {{ age }}</div>
+    <div>Ваше ФИО: {{ usert }}</div>
+    <div>Возраст: {{ aget }}</div>
     <div>Тип вашего билета: {{ 'Детский' if kind == 'child' else 'Взрослый' }}</div>
     <div> {{ 'Багажный' if baggage == 'yes' else 'Безбагажный' }}</div>
     <div> Ваша полка:
@@ -38,13 +38,13 @@
     <form>
         <label>Ваше ФИО:</label>
         <div>
-            <input type="text" placeholder="ФИО" name="user" value="{{ user or ''}}" required>
+            <input type="text" placeholder="ФИО" name="usert" value="{{ usert or ''}}" required>
             
         </div>
 
         <labeL>Возраст:</labeL>
         <div>
-            <input type="number" name="age" value="{{ age or ''}}" required>
+            <input type="number" name="aget" value="{{ aget or ''}}" required>
             
         </div>
 
@@ -53,13 +53,13 @@
             <input type="radio" value="child" name="kind" checked>Детский
         </label>
         <label>
-            <input type="radio" value="adult" name="kind" checked>Взрослый
+            <input type="radio" value="adult" name="kind">Взрослый
         </label>
        
         <div>Багаж:</div>
         <label>
-            <input type="checkbox" value="yes" name="baggage">Багаж
-            <input type="checkbox" value="no" name="baggage" checked>Нет багажа
+            <input type="radio" value="yes" name="baggage">Багаж
+            <input type="radio" value="no" name="baggage" checked>Нет багажа
         </label>
        
 
@@ -68,13 +68,13 @@
             <input type="radio" value="upper" name="trainshelf" checked>Верхняя
         </label>
         <label>
-            <input type="radio" value="lower" name="trainshelf" checked>Нижняя
+            <input type="radio" value="lower" name="trainshelf">Нижняя
         </label>
         <label>
-            <input type="radio" value="upperside" name="trainshelf" checked>Верхняя боковая
+            <input type="radio" value="upperside" name="trainshelf" >Верхняя боковая
         </label>
         <label>
-            <input type="radio" value="lowerside" name="trainshelf" checked>Нижняя боковая
+            <input type="radio" value="lowerside" name="trainshelf">Нижняя боковая
         </label> <br>
 
 
