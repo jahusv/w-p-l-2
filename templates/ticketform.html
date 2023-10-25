@@ -10,13 +10,14 @@
     <form action="/lab3/ticket/">
         <label>Ваше ФИО:</label>
         <div>
-            <input type="text" placeholder="ФИО" name="user" value="{{ user or ''}}">
-            <span class=""error>{{errors.user}}</span>
+            <input type="text" placeholder="ФИО" name="user" value="{{ user or ''}}" required>
+            
         </div>
 
         <labeL>Возраст:</labeL>
         <div>
-            <input type="number" name="age" value="{{ age or ''}}">
+            <input type="number" name="age" value="{{ age or ''}}" required>
+            
         </div>
 
         <div>Тип билета:</div>
@@ -31,9 +32,7 @@
         <label>
             <input type="radio" value="yes" name="baggage" checked>Багаж
         </label>
-        <label>
-            <input type="radio" value="no" name="baggage" checked>Без багажа
-        </label>
+       
 
         <div>Полка:</div>
         <label>
@@ -52,19 +51,19 @@
 
         <label>Пункт выезда:</label>
         <div>
-            <input type="text" placeholder="Пункт выезда" name="dispatch" value="{{ dispatch or ''}}">
-            <span class=""error>{{errors.dispatch}}</span>
+            <input type="text" placeholder="Пункт выезда" name="dispatch" value="{{ dispatch or ''}}" required>
+            
         </div>
 
         <label>Пункт прибытия:</label>
         <div>
-            <input type="text" placeholder="Пункт прибытия" name="arrival" value="{{ arrival or ''}}">
-            <span class=""error>{{errors.arrival}}</span>
+            <input type="text" placeholder="Пункт прибытия" name="arrival" value="{{ arrival or ''}}" required>
+            
         </div>
 
         <label>Дата поездки:</label>
         <div>
-            <input type="date" placeholder="Дата поездки" name="date" value="{{ date or ''}}">
+            <input type="date" placeholder="Дата поездки" name="date" value="{{ date or ''}}" required>
             <span class=""error>{{errors.arrival}}</span>
         </div>
 
