@@ -7,7 +7,7 @@ def lab():
     return render_template('lab3.html')
 
 
-@lab3.route('/lab3/form1')
+@lab3.route('/lab3/form1/')
 def form1():
     errors = {}
     user = request.args.get('user')
@@ -21,12 +21,12 @@ def form1():
     return render_template ('form1.html', user=user, age=age, sex=sex, errors=errors)
 
 
-@lab3.route('/lab3/order')
+@lab3.route('/lab3/order/')
 def order():
     return render_template('order.html')
 
 
-@lab3.route('/lab3/pay')
+@lab3.route('/lab3/pay/')
 def pay():
     price = 0
     drink = request.args.get('drink')
@@ -45,15 +45,15 @@ def pay():
     return render_template ('pay.html', price=price)
 
 
-@lab3.route('/lab3/success')
+@lab3.route('/lab3/success/')
 def success():
     return render_template ('success.html')
 
-@lab3.route('/lab3/ticketform')
+@lab3.route('/lab3/ticketform/')
 def ticketform():
     return render_template ('ticketform.html')
 
 
-@lab3.route('/lab3/ticket')
+@lab3.route('/lab3/ticket/')
 def ticket():
     return render_template ('ticket.html')
