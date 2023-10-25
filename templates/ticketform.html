@@ -4,8 +4,34 @@
 
 {%block main%}
 
+{%if user%}
+    <h1>Ваш билет</h1>
+    <div>Ваше ФИО: {{ user }}</div>
+    <div>Возраст: {{ age }}</div>
+    <div>Тип вашего билета:  {{ 'Детский' if kind == 'child' else 'Взрослый' }}</div>
+    <div> {{ 'Багажный' if baggage == 'yes' else 'Безбагажный' }}</div>
+    <div> Ваша полка:
+        {% if trainshelf == 'upper' %}
+            Верхняя
+        {% elif trainshelf == 'lower' %}
+            Нижняя
+        {% elif trainshelf == 'upperside' %}
+            Верхняя боковая
+        {% else%}
+            Нижняя боковая
+        {% endif %}</div>
+        <div>Пункт отправления: {{ dispatch }}</div>
+        <div>Пункт прибытия: {{ arrival }}</div>
+        <div>Дата поездки: {{ date }}</div>
 
-    <h1>Пользователь</h1>
+
+    <div>
+        <a href="/lab3/ticketform/">Желаете оформить еще один билет:?</a>
+    </div>
+
+    {%else%}
+
+    <h1>Заполните поля</h1>
     
     <form action="/lab3/ticket/">
         <label>Ваше ФИО:</label>
@@ -30,7 +56,8 @@
        
         <div>Багаж:</div>
         <label>
-            <input type="radio" value="yes" name="baggage" checked>Багаж
+            <input type="checkbox" value="yes" name="baggage">Багаж
+            <input type="checkbox" value="no" name="baggage" checked>Нет багажа
         </label>
        
 
@@ -46,7 +73,7 @@
         </label>
         <label>
             <input type="radio" value="lowerside" name="trainshelf" checked>Нижняя боковая
-        </label>
+        </label> <br>
 
 
         <label>Пункт выезда:</label>
@@ -64,7 +91,6 @@
         <label>Дата поездки:</label>
         <div>
             <input type="date" placeholder="Дата поездки" name="date" value="{{ date or ''}}" required>
-            <span class=""error>{{errors.arrival}}</span>
         </div>
 
 
@@ -73,5 +99,5 @@
         </div>
     </form>
 
-
+    {%endif%}
 {%endblock%}

@@ -52,13 +52,14 @@ def success():
 @lab3.route('/lab3/ticketform/')
 def ticketform():
     usert = request.args.get('user')
-    age = request.args.get('age')
+    aget = request.args.get('age')
     kind = request.args.get('kind')
     baggage = request.args.get('baggage')
     trainshelf = request.args.get('trainshelf')
     dispatch = request.args.get('dispatch')
     arrival = request.args.get('arrival')
     date = request.args.get('date')
+    return render_template('ticketform.html')
     
 
 @lab3.route('/lab3/ticket/')
