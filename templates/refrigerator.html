@@ -1,0 +1,17 @@
+{%extends "base.html"%}
+
+{%block lab%}Лабораторная работа 4{%endblock%}
+
+{%block main%}
+
+    <h1>Задайте нужную температуру</h1>
+    <form method="post">
+    <input type="number" name="temperature" placeholder="Введите температуру" value="{{ temperature or ''}}"><br>
+    
+    <button type="submit">Установить температуру</button>
+</form>    
+{%endblock%}
+
+{% block menu%}
+    <a href = '/lab4'><button>Меню работы</button></a>
+{%endblock%}
