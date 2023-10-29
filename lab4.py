@@ -26,7 +26,7 @@ def login():
             error = 'Введите пароль'
         elif not username and not password:
             error = 'Введите пароль и логин'
-        elif username == 'alex' and password == '123':
+        else:
             return render_template ('password_success.html', error=error, 
                                         username=username, password=password)    
     return render_template('login.html', error=error)
@@ -62,6 +62,44 @@ def refrigerator():
 @lab4.route('/lab4/temperature/')
 def temperature():
     return render_template('temperature.html')
+
+
+@lab4.route('/lab4/grain/', methods=['GET', 'POST'])
+def grain():
+    price = 0
+    error = ''
+    sum = 0
+    grain = request.form.get('grain')
+    weight = request.form.get('weight')
+    
+    if grain == 'barley':
+        price = 12000            
+    elif grain == 'oats':
+        price = 8500
+    elif grain == 'wheat':
+        price = 8700
+    else:
+         price = 14000
+        
+    if not weight:
+        error = 'Ошибка: не выбран вес'
+    else: 
+        weight = int(weight)
+        if weight > 499:
+            error = 'Данного объема нет в наличии'
+        elif weight < 499 and weight >= 50:
+            sum = price * weight - price*weight/10
+        else:
+            sum = price*weight
+        return render_template('grain_order.html', grain=grain, weight=weight, 
+                               error=error,sum=sum )
+    return render_template('grain.html')
+
+
+
+@lab4.route('/lab4/grain_order/')
+def order():
+    return render_template('grain_order.html')
 
 
 
