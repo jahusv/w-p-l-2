@@ -3,13 +3,14 @@
 {%block lab%}Лабораторная работа 4{%endblock%}
 
 {%block main%}
-
+<main class="board">
     <h1>Задайте нужную температуру</h1>
     <form method="post">
     <input type="number" name="temperature" placeholder="Введите температуру" value="{{ temperature or ''}}"><br>
     
     <button type="submit">Установить температуру</button>
-</form>    
+</form> 
+ </main>  
 {%endblock%}
 
 {% block menu%}

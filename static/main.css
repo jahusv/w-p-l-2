@@ -1,10 +1,13 @@
 body {
     margin:0;
+    background-color: #E6E6FA;
 }
 
 main{
     margin-bottom: 40px;
-    padding: 10px;
+    padding: 20px;
+    font-size: 20px;
+    
 }
 
 header {
@@ -16,13 +19,13 @@ header {
 header {
     margin-bottom: 30px;
     padding: 20px;
-    background: lightgray;
+    background: #BC8F8F;
 }
 
 footer {
     margin-top: 20px;
     padding: 10px;
-    background: lightgray;
+    background: #BC8F8F;
     text-align: right;
     position: fixed;
     bottom: 0;
@@ -35,7 +38,22 @@ img{
     width: 150px;
 }
 
-.errror{
+.error{
     color: red;
     size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+a:hover{
+    color: crimson;
+    font-weight: bold;
+}
+a:visited{
+    color: #BC8F8F;
+}
+
+.board{
+    border: 1px solid #000;
+    width: 400px;
+    margin-left: 500px;
 }
