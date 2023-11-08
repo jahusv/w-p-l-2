@@ -8,6 +8,8 @@ def lab():
 
 @lab4.route('/lab4/login/', methods = ['GET', 'POST'])
 def login():
+    if request.method == 'GET':
+         return render_template('login.html')   
     error = ''   
     username = request.form.get('username', '')
     password = request.form.get('password', '')
@@ -63,9 +65,7 @@ def refrigerator():
     return render_template('refrigerator.html')
 
 
-@lab4.route('/lab4/temperature/')
-def temperature():
-    return render_template('temperature.html')
+
 
 
 @lab4.route('/lab4/grain/', methods=['GET', 'POST'])
@@ -76,7 +76,7 @@ def grain():
     grain = request.form.get('grain')
     weight = request.form.get('weight')
     
-    if grain == 'barley':
+    if grain == 'Ячмень':
         price = 12000            
     elif grain == 'oats':
         price = 8500
@@ -100,17 +100,25 @@ def grain():
     return render_template('grain.html')
 
 
-@lab4.route('/lab4/grain_order/')
-def order():
-    return render_template('grain_order.html')
+
 
 
 @lab4.route('/lab4/cookies/', methods=['GET', 'POST'])
 def cookies():
+    if request.method == 'GET':
+        return render_template ('cookies.html')
     error = ''
     font_size = request.form.get('font_size')
     bgc = request.form.get('bgc')
     text_color = request.form.get('text_color')
+    headers ={
+        'Set-Cookie' : [
+            'bgc=' + bgc + ';path=/',
+            'font_size=' + font_size + ';path=/',
+            'text_color=' + text_color + ';path=/',
+        ],
+        'Location' : '/lab4/cookies'
+    }
     if not font_size:
         error = ''
     else:
@@ -120,7 +128,7 @@ def cookies():
         elif bgc == text_color:
             error = 'цвет фона не может совпадать с цветом текста'
         else:
-            return render_template ('result.html', font_size=font_size, bgc=bgc, text_color=text_color)
+            return render_template ('result.html', font_size=font_size, bgc=bgc, text_color=text_color), headers
     return render_template ('cookies.html', error=error)
         
 
