@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template,request, redirect, session, Flask 
+from flask import Blueprint, render_template,request, redirect, session, Flask, abort
 from werkzeug.security import check_password_hash, generate_password_hash 
 import psycopg2
 
@@ -50,7 +50,8 @@ def gen():
 def registerPage():
     
     errors = []
-    
+   
+
     if request.method == 'GET':
         return render_template('registration.html', errors=errors)
 
@@ -66,7 +67,7 @@ def registerPage():
 
     conn = dbConnect()
     cur = conn.cursor()
-
+    
     #проверка
     cur.execute("SELECT username FROM users WHERE username = %s;", (username,))
     
@@ -86,7 +87,7 @@ def registerPage():
 
     return redirect ('/lab5/login5/')
 
-
+#Вход
 @lab5.route('/lab5/login5/', methods = ['GET', 'POST'])
 def loginPage():
     errors = [];
@@ -154,7 +155,7 @@ def createArticle():
 
             dbClose(cur, conn)
             return redirect(f'/lab5/articles/{new_article_id}')
-        
+    abort (403)         
     
 #просмотр статей
 @lab5.route('/lab5/articles/<int:article_id>')  
@@ -179,6 +180,9 @@ def state(article_id):
         return render_template('articleN.html', arcticle_text=text, article_title=articleBody[0],
                             username=session.get('username'))
     
+    abort (403)
+       
+    
 
 @lab5.route('/lab5/user_articles/')
 def user_articles():
@@ -194,10 +198,11 @@ def user_articles():
         dbClose(cur, conn)
 
         return render_template('user_articles.html', articles=articles)
-    
+
+    abort (403)    
 
 @lab5.route('/lab5/logout/')
 def logout():
     # Clear the entire session
     session.clear()
-    return render_template('login5.html')
+    return redirect('/lab5/login5/')
