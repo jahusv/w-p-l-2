@@ -120,7 +120,7 @@ def loginPage():
         session['id'] = userID
         session['username'] = username
         dbClose(cur, conn)
-        return redirect ('/lab5/')
+        return redirect ('/lab5/general/')
     else: 
         errors.append('Неправильный логин или пароль')
         return render_template('login5.html', errors=errors)
