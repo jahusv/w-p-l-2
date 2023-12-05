@@ -17,34 +17,36 @@ function getPrice(){
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(obj)
     })
-    .then(function(resp){
-        return resp.json();
-    })
-    .then(fenction(data){
+        .then(function (resp) {
+            return resp.json();
+        })
+        .then(function (data) {
         document.querySelector('#price').innerHTML = 'Цена напитка: #{data.result} руб';
         document.querySelector('#pay').style.display = '';
-    })}
+    })
+}
 // куда писать эту функцию
-function pay(){
-    const card = document.getElementsByClassName(card);
-    const cvv = document.getElementsByClassName(cvv);
+function pay() {
+    const card = document.querySelector('[name=card]').value;
+    const cvv = document.querySelector('[name=cvv]').value;
         
     const pp = {
-        "method" : "pay",
-        "params":{
+        "method": "pay",
+        "params": {
             card: card,
             cvv: cvv
-          }
-       } ;
-    
-       fetch ('/lab7/api/', {
+        }
+    };
+        
+    fetch('/lab7/api/', {
         method: 'POST',
-        headers: {'Content-Type':'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(pp)
     })
-    .then(function(resp){
-        return resp.json();
-    })
-    .then(fenction(data){
-        document.getElementById(pay).innerHTML = 'Оплата прошла успешно! Сумма к списанию: #{data.result} руб';
-        })}
+        .then(function (resp) {
+            return resp.json();
+        })
+        .then(function (data) {
+            document.getElementById('pay').innerHTML = 'Оплата прошла успешно! Сумма к списанию: ' + data.result + ' руб';
+        })
+}
