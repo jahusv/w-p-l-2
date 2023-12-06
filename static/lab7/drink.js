@@ -28,7 +28,7 @@ function getPrice(){
 function pay() {
     const card = document.querySelector('[name=card]').value;
     const cvv = document.querySelector('[name=cvv]').value;
-    const drink = document.querySelector('[name=drink]').value;
+    const drink = document.querySelector('[name=drink]:checked').value;
     const milk = document.querySelector('[name=milk]').checked;
     const sugar = document.querySelector('[name=sugar]').checked;
     const pp = {
@@ -58,7 +58,7 @@ function pay() {
 function reset() {
     const card = document.querySelector('[name=card]').value;
     const cvv = document.querySelector('[name=cvv]').value;
-    const drink = document.querySelector('[name=drink]').value;
+    const drink = document.querySelector('[name=drink]:checked').value;
     const milk = document.querySelector('[name=milk]').checked;
     const sugar = document.querySelector('[name=sugar]').checked;
     
