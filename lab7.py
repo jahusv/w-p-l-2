@@ -49,12 +49,22 @@ def calculate_price(params):
     
     
 def pay(params):
-    card_num = params['card_num']
-    if len(card_num) != 16 or not card_num.isdigit():
+    print("параметры:", params)  
+    card = params['card']
+    if len(card) != 16 or not card.isdigit():
         return {"result": None, "error": "Неверный номер карты"}
     cvv = params['cvv']
     if len(cvv) != 3 or not cvv.isdigit():
         return {'result':None, 'error': 'Неверный номер CVV/CVC'}
-        
     price = calculate_price(params)
-    return {'result': f'С карты {card_num} списано {price}руб' , "error":None}
+    return {'result': f'С карты {card} списано {price}руб' , "error":None}
+
+def reset(params):
+    card = params['card']
+    if len(card) != 16 or not card.isdigit():
+        return {"result": None, "error": "Неверный номер карты"}
+    cvv = params['cvv']
+    if len(cvv) != 3 or not cvv.isdigit():
+        return {'result':None, 'error': 'Неверный номер CVV/CVC'}
+    price = calculate_price(params)
+    return {'result': f'Платеж отменен. Сумма к возврату: {price}руб' , "error":None}
