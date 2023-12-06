@@ -1,8 +1,9 @@
-from flask import Blueprint, render_template,request, redirect, session, Flask 
+from flask import Blueprint, render_template,request, redirect, session, Flask, abort
 from werkzeug.security import check_password_hash, generate_password_hash 
 from Db.models import users, articles
 from flask_login import login_user, login_required, current_user
 import psycopg2
+from Db import db
 
 
 lab6 = Blueprint('lab6', __name__)
@@ -53,21 +54,22 @@ def register():
     elif len(password_form) <5:
         error.append('Длина пароля должна быть более 5 символов')
     
-    conn = dbConnect()
-    cur = conn.cursor()
+    # conn = dbConnect()
+    # cur = conn.cursor()
     
     #проверка
-    cur.execute("SELECT username FROM users WHERE username = %s;", (username_form,))
+    # cur.execute("SELECT username FROM users WHERE username = %s;", (username_form,))
     
-    if cur.fetchone() is not None:
-        error.append('Пользователь с данным именем уже существует')
+    # if cur.fetchone() is not None:
+    #     error.append('Пользователь с данным именем уже существует')
        
-        conn.close()
-        cur.close()
+    #     conn.close()
+    #     cur.close()
 
-        return render_template('register.html', errors=error)
+    #     return render_template('register.html', errors=error)
 
-    isUserExist = users.query.filter_by(username=username_form).first()
+    isUserExist = users.query.filter_by(username=username_form)
+    print('output', isUserExist)
 
     if isUserExist is not None:
         return render_template ('register.html')

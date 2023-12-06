@@ -2,7 +2,6 @@ from flask import Blueprint, render_template, request, abort
 
 lab7 = Blueprint('lab7', __name__)
 
-## не добавляется ссылка в баш консоли
 
 @lab7.route('/lab7')
 def main():
@@ -42,7 +41,7 @@ def calculate_price(params):
         price = 70
 
     if milk:
-        price =+ 30
+        price += 30
     if sugar:
         price += 10
         
