@@ -51,7 +51,10 @@ function pay() {
             return resp.json();
         })
         .then(function (data) {
-            document.getElementById('pay').innerHTML = `Оплата прошла успешно! ${data.result} `;
+            if (data.result)
+                document.getElementById('pay').innerHTML = `Оплата прошла успешно! ${data.result} `;
+            else
+                document.getElementById('pay').innerHTML = `Оплата не прошла ${data.error} `;
         })
 }
 
@@ -63,7 +66,7 @@ function reset() {
     const sugar = document.querySelector('[name=sugar]').checked;
     
     const back = {
-        "method": "pay",
+        "method": "reset",
         "params": {
             card: card,
             cvv: cvv,

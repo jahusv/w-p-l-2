@@ -1,0 +1,62 @@
+{%extends "base.html"%}
+{%block lab%}Лабораторная работа 9{%endblock%}
+
+{% block script %}
+    <script src="{{ url_for('static', filename='lab9/main.js') }}"></script>
+
+    <style>
+        .modal{
+            /* display: flex;    */
+            z-index: 100;
+            box-shadow: 3px 3px 5px black;
+            width: 400px;
+            left: 50%;
+            margin-left: -200px;
+            position: absolute;
+            padding: 20px;
+        }
+        img{
+            border-radius: 10px;
+            margin-left: 250px;
+        }
+    </style>
+{% endblock %}
+
+
+{%block main%}
+    <h1>Поздравления &#10054</h1>
+{%if recipient_name%}
+<div class="modal">
+    <div>{{recipient_name}}, поздравляю с наступающим новым годом!</div>
+    <div>Желаю всегда быть счастлив{{'ой' if gender == 'female' else 'ым'}}<br>и всегда достигать поставленных целей.<br>Всего наилучшего!</div>
+    <div>С уважением, {{sender_name}} &#10054</div>
+    <img src="/static/lab9/зайка.jpg">
+</div>
+{%else%}
+    <div class="modal">
+        <h2>Создать открытку</h2>
+        <form >
+        <label>
+            Имя получателя:
+            <input type="text" id="recipient_name" name="recipient_name" value="{{ recipient_name or ''}}" required>
+        </label><br>
+        <label>
+            Пол получателя:
+            <input type="radio" value="male" id="male" name="gender" checked>Мужской
+        </label>
+        <label>
+            <input type="radio" value="female" id="female" name="gender" checked> Женский
+        </label><br>
+        <label>
+            Имя отправителя:
+            <input type="text" id="sender_name" name="sender_name" value="{{sender_name or ''}}" required>
+        </label><br>
+
+        <button type="submit">OK</button>
+        <button type="reset">Отмена</button>
+    </div>
+</form>
+{%endif%}
+    <form action="/menu"><button>Вернуться в меню</button></form>
+{%endblock%}
+

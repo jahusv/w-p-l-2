@@ -34,6 +34,7 @@ def menu():
             <a href="/lab6">Лабораторная работа 6</a><br>
             <a href="/lab7">Лабораторная работа 7</a><br>
             <a href="/lab8">Лабораторная работа 8</a><br>
+            <a href="/lab9">Лабораторная работа 9</a><br>
             <a href="/labrgr">РГР</a><br>
         </h1>
         <footer>

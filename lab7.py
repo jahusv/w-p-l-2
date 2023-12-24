@@ -23,6 +23,10 @@ def api():
     if data['method'] == 'pay':
         return pay (data['params'])
     
+    if data['method'] == 'reset':
+        return reset (data['params'])
+    
+    
     abort (400)
 
 def get_price(params):
