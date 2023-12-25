@@ -1,0 +1,25 @@
+    {% extends "rgr/style.html" %}
+
+{% block lab %}Мои инициативы{% endblock %}
+
+{% block script %}
+    <script src="{{ url_for('static', filename='rgr/main.js') }}"></script>
+{% endblock %}
+{%block main%}    
+        <h1>Мои инициативы</h1><div>
+
+            <div class="bigContainer">
+    {% if articles %} 
+        {% for article in articles %}
+        <div class="smallerContainer">
+                <h3>{{ article[1] }}</h3>
+                <p>{{ article[2] }}</p>
+                <button class="delete-btn" data-article-id="{{ article[0] }}">Удалить</button>
+        </div>
+        {% endfor %}
+
+    {% else %}
+        <p>No initiatives found.</p>
+    {% endif %} 
+     </div>
+ {%endblock%}

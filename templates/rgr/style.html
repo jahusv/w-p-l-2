@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block lab %}{% endblock %}</title>
+    {%block script%}{%endblock%}
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #2f4454;
+            color: #edf5e1;
+        }
+
+
+        header {
+            color: #2f4454;
+            background-color: #edf5e1;
+            font-size: 20px;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        
+        header a {
+            color: #2f4454;
+            text-decoration: none;
+        }
+
+        header button {
+            font-size: 18px;
+            border-radius: 10%;
+            padding: 5px 10px;
+            background-color: #2f4454;
+            color: #edf5e1;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            display: inline-block
+        }
+        .logo{
+            font-weight: bold; 
+            font-size: 36px;
+        }
+        .buttons-container {
+        display: flex;
+        padding: 10px;
+        }
+        
+        main {
+            padding: 20px;
+        }
+
+        .bigContainer {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .smallerContainer {
+            border: 3px solid #edf5e1;
+            padding: 10px;
+            flex: 0 0 calc(33.33% - 20px);
+            margin: 10px;
+            box-sizing: border-box;
+            display: flex;  
+            flex-direction: column;  
+        }
+        .smallerContainer button {
+            border: none;
+            border-radius: 10%;
+            padding: 10px;
+            font-size: 10px;
+            background-color: #edf5e1;
+            color: #2f4454;
+            cursor: pointer;
+            margin-right: 1px;
+            width: 50px;
+        }
+
+        .initiativesСontainer {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .initiative {
+            border: 3px solid #edf5e1;
+            padding: 10px;
+            flex: 0 0 calc(33.33% - 20px);
+            margin: 10px;
+            box-sizing: border-box;
+            display: flex;  
+            flex-direction: column;  
+        }
+        .initiative button {
+            border: none;
+            border-radius: 10%;
+            padding: 10px;
+            font-size: 10px;
+            background-color: #edf5e1;
+            color: #2f4454;
+            cursor: pointer;
+            margin-right: 1px;
+            width: 50px;
+        }
+
+        .loadMore {
+            border: none;
+            border-radius: 10%;
+            padding: 10px;
+            font-size: 18px;
+            background-color: #edf5e1;
+            color: #2f4454;
+            cursor: pointer;
+        }
+
+        .modal{   
+            z-index: 100;
+            box-shadow: 3px 3px 5px  #edf5e1;
+            width: 400px;
+            left: 50%;
+            margin-left: -200px;
+            position: absolute;
+            padding: 20px;
+        }
+
+        .modal button {
+            border: none;
+            border-radius: 10%;
+            padding: 10px;
+            font-size: 10px;
+            background-color: #edf5e1;
+            color: #2f4454;
+            cursor: pointer;
+            margin-right: 1px;
+        }
+
+        /* .error-container{
+            
+        } */
+        .new_initiative textarea{
+            width: 400px;
+            box-shadow: 3px 3px 5px  #edf5e1;
+            background-color: #2f4454;
+            color: #edf5e1;
+        }
+
+        .new_initiative input{
+            width: 400px;
+            box-shadow: 1px 2px 3px  #edf5e1;
+            background-color: #2f4454;
+            color: #edf5e1; 
+        }
+
+        .new_initiative{
+            z-index: 100;
+            left: 50%;
+            margin-left: -200px;
+            position: absolute;
+            padding: 20px;
+        }
+
+        .new_initiative button{
+            border: none;
+            border-radius: 10%;
+            padding: 10px;
+            font-size: 10px;
+            background-color: #edf5e1;
+            color: #2f4454;
+            cursor: pointer;
+            margin-right: 1px;
+            margin-left: 325px;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #edf5e1;
+            color: #2f4454;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+    </head>
+    <body>
+        <header>
+            <a href="/main/"class="logo">Инициативы</a>
+                <div><a href="/offer_initiative/api/">Предложить инициативу</a></div>
+                <div><a href="/my_initiatives/api/">Мои Инициативы</a></div>
+                <div>{{ username }}</div>
+                <div class="buttons-container">
+                <form action="/login/api/"><button >Войти</button></form>
+                <form action="/registration/api/"><button>Зарегистрироваться</button></form>
+                <form action="/logout/api/"><button>Выйти</button></form>
+                </div>
+        </header>
+        <main>
+            {% block main%}{%endblock%}
+            {% block menu%}{%endblock%}
+        </main>
+        <!-- <footer>
+            <a href="/menu"> Панчук Анастасия Адреевна, ФБИ-13</a>
+         </footer> -->
+    </body>
+    </html>

@@ -18,6 +18,11 @@ def not_found(err):
 def server_error(err):
     return render_template ('/lab9/500.html')
 
+
+@lab9.app_errorhandler(403)
+def server_error(err):
+    return render_template ('/rgr/403.html')
+
 @lab9.route('/lab9/500/')
 def no_answer():
     return render_template ('/lab9/500.html')

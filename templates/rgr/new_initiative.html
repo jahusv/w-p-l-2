@@ -1,0 +1,20 @@
+{% extends "rgr/style.html" %}
+
+{% block lab %}Новая инициатива{% endblock %}
+
+{%block main%}
+    {% if errors %}
+    <div class="error-container">
+        
+            {% for error in errors %}
+                {{ error }}
+            {% endfor %}
+        
+    </div>
+    {% endif %}
+    <form method="POST" class="new_initiative">
+        <input name="title_article" type="text" placeholder="Введите название инициативы"><br><br>
+        <textarea name="text" placeholder="Суть инициативы" rows="20"></textarea><br><br>
+        <button type="submit">Опубликовать</button> 
+    </form>
+    {%endblock%}

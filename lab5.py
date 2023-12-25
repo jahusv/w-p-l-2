@@ -130,8 +130,7 @@ def loginPage():
 #создание новой статьи
 @lab5.route('/lab5/new_article/', methods=['GET', 'POST'])
 def createArticle():
-    errors = []
-
+    errors = [] 
     userID = session.get('id')
 
     if userID is not None:

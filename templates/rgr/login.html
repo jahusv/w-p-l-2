@@ -1,0 +1,30 @@
+{% extends "rgr/style.html" %}
+
+{% block lab %}Вход{% endblock %}
+
+{%block main%}
+    <form method="POST">  
+        <div class="modal">
+            <h2>Вход</h2>
+            {% if errors %}
+        <div class="error-container">
+            
+                {% for error in errors %}
+                    {{ error }}
+                {% endfor %}
+            
+        </div>
+            {% endif %} 
+            <label for="username">Логин
+                <input type="text" name="username" placeholder="username">
+            </label><br>
+            <label for="password">Пароль
+                <input type="text" name="password" placeholder="password">
+            </label><br>
+    
+            <button type="submit">Войти</button>
+            <button type="reset">Отмена</button>
+            
+        </div>
+    </form>    
+    {%endblock%}
