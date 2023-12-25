@@ -18,7 +18,7 @@ def dbClose(cursor, connection):
     cursor.close()
     connection.close()
 
-@rgr.route('/main/')
+@rgr.route('/initiatives/')
 def user():
     visibleUser = session.get ('username','Anon')
     userID = session.get('id')
